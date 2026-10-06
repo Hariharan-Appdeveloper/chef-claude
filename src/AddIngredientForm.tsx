@@ -18,15 +18,38 @@ export function AddIngredientForm(){
         }
         event.currentTarget.reset();
     }
+
+    function handleSubmit(event: React.MouseEvent<HTMLButtonElement>){
+
+        event.preventDefault();
+        console.log(ingredient);
+        event.currentTarget;
+
+    }
     return(
         <main className="home-page">
             <form className="add-ingredient-form" onSubmit={handleClick}>
                 <input type="text" aria-label="Add Ingredient" placeholder="e.g Oregano" name="ingredient" />
                 <button>Add Ingredient</button>
             </form>
-            <ul>
-                {ingredientList}
-            </ul>
+            {ingredient.length > 0 && (
+                <>
+                <section  className="ingredient-list">
+                <h2>Ingredients On Hand</h2>
+                <ul>
+                    {ingredientList}
+                </ul>
+            </section>
+            <section className="submitIngredient">
+                    <div className="text-container">
+                        <h2>Ready For A Recipe?</h2>
+                        <p>Generate a recipe from your list of ingredients.</p>
+                    </div>
+                    <button type="button" onClick={handleSubmit}>Get A Recipe</button>
+            </section>
+            </>    
+            )}
+
         </main>
     );
 }

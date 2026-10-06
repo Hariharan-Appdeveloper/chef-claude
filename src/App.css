@@ -51,6 +51,53 @@ main {
   margin-right: 5px;
 }
 
-.home-page > ul > li {
+.home-page > section > ul > li {
   padding: 5px;
+}
+
+.submitIngredient {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%); /* Centers it horizontally */
+  width: 90%;
+  max-width: 800px;
+
+  background-color: #ffffeb;
+  padding: 28px 36px;
+  border-radius: 10px;
+}
+
+.submitIngredient {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-container h2 {
+  margin: 0 0 4px 0;
+  font-size: 1.125rem;
+  color: #111827;
+}
+
+.text-container p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+.submitIngredient button {
+  background-color: #d16348;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.submitIngredient button:hover {
+  background-color: #b8533b;
 }
