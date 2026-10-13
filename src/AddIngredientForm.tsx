@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import { IngredientsList } from "./IngredientsList";
-import AIRecipe from "./AIRecipe";
 import { generateRecipe } from "./ollama";
 
 export function AddIngredientForm(){
@@ -10,6 +9,12 @@ export function AddIngredientForm(){
     const [recipe, setRecipe] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState("");
+    const recipeSection = useRef<HTMLSectionElement>(null);
+
+    useEffect(()=>{
+        console.log(recipeSection.current)
+        recipeSection.current?.scrollIntoView({behavior: "smooth"})
+    },[recipe])
 
 
     function handleClick(event: React.SubmitEvent<HTMLFormElement>){
@@ -66,7 +71,7 @@ export function AddIngredientForm(){
             } 
             {
                 recipe && <>
-                <section className="suggested-recipe-container">
+                <section className="suggested-recipe-container" ref={recipeSection}>
                     <h2>Chef Claude Recommends:</h2>
                     <pre style={{whiteSpace: "pre-wrap", fontFamily: "inherit"}}>{recipe}</pre>
                 </section>
